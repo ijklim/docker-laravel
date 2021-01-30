@@ -1,22 +1,33 @@
 version: '3.9'
 services:
 
-  # Attach bash terminal to web: docker exec -ti docker-laravel-1 bash
   web:
     build:
       context: .
       dockerfile: ./docker/debian/Dockerfile
       args:
-        - BUILD_DEBIAN_VERSION=${BUILD_DEBIAN_VERSION}
-    container_name: ${WEB_CONTAINER_NAME}
-    env_file: ./docker/.env
+        - DOCKER_BUILD_DEBIAN_VERSION=${DOCKER_BUILD_DEBIAN_VERSION}
+    container_name: ${DOCKER_WEB_CONTAINER_NAME}
     volumes:
       # Volume definition format => local path:path in container
       # For laravel, this docker-compose.yml should be located in the root directory
       - .:/var/www/html
       # Preconfigured php.ini file should be in the `docker/php` folder
       - ./docker/php/php.ini:/usr/local/etc/php/php.ini
-    restart: always
     ports:
       # local port (i.e. localhost:8000): port in container
-      - ${WEB_PORT_NUMBER}:80
+      - ${DOCKER_WEB_PORT_NUMBER}:80
+
+  db:
+    build:
+      context: .
+      dockerfile: ./docker/mysql/Dockerfile
+      args:
+        - DOCKER_BUILD_MYSQL_VERSION=${DOCKER_BUILD_MYSQL_VERSION}
+    container_name: ${DOCKER_DB_CONTAINER_NAME}
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+    restart: always
+    ports:
+      - 3306:3306

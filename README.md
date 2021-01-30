@@ -21,32 +21,37 @@
   #   • /docker/apache/apache.conf
   #   • /docker/debian/Dockerfile
   #   • /docker/php/php.ini
+  # Add docker environment variables to `/.env` file
 
   ```
 
 
 # Installation
 
-* Copy `/docker/.env.example` to `/docker/.env`, make changes if necessary
+* Copy `/.env.example` to `/.env`, make changes if necessary
 
   ```sh
   # Build docker image
-  docker-compose --env-file ./docker/.env build --no-cache
+  docker-compose build
+  # Use `docker-compose build --no-cache` to ignore cache
+  # To check instructions with added environment variables `docker-compose config`
 
   # Start server
-  docker-compose --env-file ./docker/.env up
+  docker-compose up
 
   # Visit website
   http://<docker machine ip>:<WEB_PORT_NUMBER specified in /docker/.env>
+
+  # Attach bash terminal to web
+  docker exec -ti <WEB_CONTAINER_NAME> bash
+
+  # Stop server
+  docker-compose down
   ```
-
-* Build docker image `docker-compose --env-file ./docker/.env build`
-
-  * Note: docker-compose v.1.25+ is required to use `--env-file` option
-
-* Start docker application `docker-compose up`
 
 
 # Resources
 
 * Environment variables in Compose: https://docs.docker.com/compose/environment-variables/
+
+* MySQL docker configurations: https://hub.docker.com/_/mysql
