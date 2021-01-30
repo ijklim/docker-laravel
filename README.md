@@ -28,22 +28,23 @@
 
 # Installation
 
-* Copy `/.env.example` to `/.env`, make changes if necessary
+* Copy `/.env.example` to `/.env`, make configuration changes to section below `Docker Setup` if necessary
 
   ```sh
   # Build docker image
   docker-compose build
-  # Use `docker-compose build --no-cache` to ignore cache
+  # Use `docker-compose build --no-cache` to rebuild from scratch
   # To check instructions with added environment variables `docker-compose config`
 
   # Start server
   docker-compose up
 
   # Visit website
-  http://<docker machine ip>:<WEB_PORT_NUMBER specified in /docker/.env>
+  http://<docker machine ip>:<DOCKER_WEB_PORT_NUMBER specified in /docker/.env>
 
   # Attach bash terminal to web
-  docker exec -ti <WEB_CONTAINER_NAME> bash
+  docker exec -ti <DOCKER_WEB_CONTAINER_NAME> bash
+  # cd /var/www/html to run artisan commands
 
   # Stop server
   docker-compose down
