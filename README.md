@@ -1,3 +1,5 @@
+# Building Laravel with Docker
+
 # Requirements
 
 * Composer
@@ -25,7 +27,7 @@
 
 # Installation
 
-* Configure `/docker/.env`
+* Copy `/docker/.env.example` to `/docker/.env`, make changes if necessary
 
   ```sh
   # Build docker image
@@ -35,7 +37,7 @@
   docker-compose --env-file ./docker/.env up
 
   # Visit website
-  http://<docker machine ip>:<APP_PORT_NUMBER specified in /docker/.env>
+  http://<docker machine ip>:<WEB_PORT_NUMBER specified in /docker/.env>
   ```
 
 * Build docker image `docker-compose --env-file ./docker/.env build`
