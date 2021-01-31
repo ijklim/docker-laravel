@@ -28,7 +28,23 @@
 
 # Installation
 
+* Copy database backup `.sql` script to folder `/docker/mysql/docker-entrypoint-initdb.d`
+
 * Copy `/.env.example` to `/.env`, make configuration changes to section below `Docker Setup` if necessary
+
+  * Likely candidates for modifications:
+
+    * DB_HOST, DB_DATABASE, DB_USERNAME, DB_PASSWORD
+
+    * DOCKER_WEB_CONTAINER_NAME, DOCKER_WEB_PORT_NUMBER
+
+    * DOCKER_DB_CONTAINER_NAME
+
+    * DOCKER_BUILD_DEBIAN_VERSION
+
+    * DOCKER_BUILD_MYSQL_VERSION
+
+* Docker commands
 
   ```sh
   # On Windows, make sure to launch Docker Quickstart Terminal
