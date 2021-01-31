@@ -31,6 +31,7 @@
 * Copy `/.env.example` to `/.env`, make configuration changes to section below `Docker Setup` if necessary
 
   ```sh
+  # On Windows, make sure to launch Docker Quickstart Terminal
   # Build docker image
   docker-compose build
   # Use `docker-compose build --no-cache` to rebuild from scratch
@@ -42,9 +43,12 @@
   # Visit website
   http://<docker machine ip>:<DOCKER_WEB_PORT_NUMBER specified in /docker/.env>
 
-  # Attach bash terminal to web
+  # To troubleshoot: Attach bash terminal to web
   docker exec -ti <DOCKER_WEB_CONTAINER_NAME> bash
   # cd /var/www/html to run artisan commands
+
+  # To troubleshoot: Attach bash terminal to MySQL
+  docker exec -ti <DOCKER_DB_CONTAINER_NAME> bash
 
   # Stop server
   docker-compose down
@@ -56,3 +60,8 @@
 * Environment variables in Compose: https://docs.docker.com/compose/environment-variables/
 
 * MySQL docker configurations: https://hub.docker.com/_/mysql
+
+
+# Notes
+
+* MySQL databases are store in `/var/lib/mysql/`, connect to the db container to find this folder
