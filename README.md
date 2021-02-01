@@ -32,6 +32,8 @@
 
 * Copy `/.env.example` to `/.env`, make configuration changes to section below `Docker Setup` if necessary
 
+  * Copy command `cp .env.example .env`
+
   * Likely candidates for modifications:
 
     * DB_HOST, DB_DATABASE, DB_USERNAME, DB_PASSWORD
@@ -51,6 +53,7 @@
   # Build docker image
   docker-compose build
   # Use `docker-compose build --no-cache` to rebuild from scratch
+  # Use `docker-compose build --no-cache web` to rebuild from scratch a specifi service
   # To check instructions with added environment variables `docker-compose config`
 
   # Start server

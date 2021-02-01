@@ -13,7 +13,7 @@ services:
       # For laravel, this docker-compose.yml should be located in the root directory
       - .:/var/www/html
       # Preconfigured php.ini file should be in the `docker/php` folder
-      - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+      - ./docker/php/${DOCKER_PHP_VERSION}/php.ini:/usr/local/etc/php/php.ini
     ports:
       # local port (i.e. localhost:8000): port in container
       - ${DOCKER_WEB_PORT_NUMBER}:80
