@@ -86,3 +86,5 @@
 * MySQL databases are store in `/var/lib/mysql/`, connect to the db container to find this folder
 
 * If using Ubuntu instead of Debian, change all instances of 'debian' to 'ubuntu' in `docker-compose.yml` (keeping case)
+
+* Check `phpinfo()` for `Loaded Configuration File`, the `/usr/local/etc/php/php.ini` volume mapping in `docker-compose.yml` might need to be changed accordingly
