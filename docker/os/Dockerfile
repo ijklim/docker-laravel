@@ -1,7 +1,11 @@
-ARG DOCKER_BUILD_DEBIAN_VERSION
+ARG DOCKER_BUILD_OS
+ARG DOCKER_BUILD_OS_VERSION
 
-FROM debian:${DOCKER_BUILD_DEBIAN_VERSION}
+FROM ${DOCKER_BUILD_OS}:${DOCKER_BUILD_OS_VERSION}
 MAINTAINER Ivan Lim
+
+# To bypass Geographic area selection on Ubuntu, which does not allow user input
+ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
 
