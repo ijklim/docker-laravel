@@ -13,9 +13,10 @@ services:
       # Volume definition format => local path:path in container
       # For laravel, this docker-compose.yml should be located in the root directory
       - .:/var/www/html
-      # Preconfigured php.ini file should be in the `docker/php` folder
+      # Preconfigured php.ini file should be in the `docker/php/${DOCKER_PHP_VERSION}` folder
       # Note: Double check phpinfo() to determine where php.ini is loaded from
       - ./docker/php/${DOCKER_PHP_VERSION}/php.ini:/usr/local/etc/php/php.ini
+      # - ./docker/php/${DOCKER_PHP_VERSION}/php.ini:/etc/php/${DOCKER_PHP_VERSION}/apache2/php.ini
       # VirtualHost definition file
       - ./docker/apache/apache.conf:/etc/apache2/sites-available/000-default.conf
       # Log folder

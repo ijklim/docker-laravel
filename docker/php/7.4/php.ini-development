@@ -1,4 +1,5 @@
 [PHP]
+[Version 7.4]
 
 ;;;;;;;;;;;;;;;;;;;
 ; About php.ini   ;
@@ -687,7 +688,7 @@ auto_globals_jit = On
 ; Its value may be 0 to disable the limit. It is ignored if POST data reading
 ; is disabled through enable_post_data_reading.
 ; http://php.net/post-max-size
-post_max_size = 20M
+post_max_size = 8M
 
 ; Automatically add files before PHP document.
 ; http://php.net/auto-prepend-file
@@ -754,7 +755,7 @@ user_dir =
 ; http://php.net/extension-dir
 ;extension_dir = "./"
 ; On windows:
-extension_dir = "ext"
+;extension_dir = "ext"
 
 ; Directory where the temporary files should be placed.
 ; Defaults to the system default (see sys_get_temp_dir)
@@ -839,7 +840,7 @@ file_uploads = On
 
 ; Maximum allowed size for uploaded files.
 ; http://php.net/upload-max-filesize
-upload_max_filesize = 20M
+upload_max_filesize = 2M
 
 ; Maximum number of files that can be uploaded via a single request
 max_file_uploads = 20
@@ -907,28 +908,28 @@ default_socket_timeout = 60
 ;   Be sure to appropriately set the extension_dir directive.
 ;
 ;extension=bz2
-extension=curl
+;extension=curl
 ;extension=ffi
 ;extension=ftp
-extension=fileinfo
-extension=gd2
+;extension=fileinfo
+;extension=gd2
 ;extension=gettext
 ;extension=gmp
 ;extension=intl
 ;extension=imap
 ;extension=ldap
-extension=mbstring
+;extension=mbstring
 ;extension=exif      ; Must be after mbstring as it depends on it
 ;extension=mysqli
 ;extension=oci8_12c  ; Use with Oracle Database 12c Instant Client
 ;extension=odbc
-extension=openssl
+;extension=openssl
 ;extension=pdo_firebird
-extension=pdo_mysql
+;extension=pdo_mysql
 ;extension=pdo_oci
 ;extension=pdo_odbc
 ;extension=pdo_pgsql
-extension=pdo_sqlite
+;extension=pdo_sqlite
 ;extension=pgsql
 ;extension=shmop
 
@@ -1914,7 +1915,7 @@ ldap.max_links = -1
 [curl]
 ; A default value for the CURLOPT_CAINFO option. This is required to be an
 ; absolute path.
-curl.cainfo = "C:\php\cacert.pem"
+;curl.cainfo =
 
 [openssl]
 ; The location of a Certificate Authority (CA) file on the local filesystem
